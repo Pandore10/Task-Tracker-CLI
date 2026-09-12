@@ -25,4 +25,51 @@ public class Task {
                                  "Last updated: %s\n" +
                                  "Created: %s", this.id, this.description, this.status, this.updatedAt, this.createdAt);
         }
+
+        private void updateTask() {
+            this.updatedAt = LocalDateTime.now();
+        }
+
+        public int getId() {
+            return this.id;
+        }
+
+        public String getDescription() {
+            return this.description;
+        }
+
+        public String status() {
+            return this.status;
+        }
+
+        public LocalDateTime getLastUpdateTime() {
+            return this.updatedAt;
+        }
+
+        public LocalDateTime getTaskCreatedTime() {
+            return this.createdAt;
+        }
+
+        public void updateDescription(String description) {
+            this.description = description;
+            updateTask();
+        }
+
+        public void setStatusTodo() {
+            if (this.status.equals("todo")) return;
+            this.status = "todo";
+            updateTask();
+        }
+
+        public void setStatusInProgress() {
+            if (this.status.equals("in-progress")) return;
+            this.status = "in-progress";
+            updateTask();
+        }
+
+        public void setStatusDone() {
+            if (this.status.equals("done")) return;
+            this.status = "done";
+            updateTask();
+        }
 }
