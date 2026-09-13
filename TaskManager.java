@@ -41,14 +41,17 @@ public class TaskManager {
                 switch (status) {
                     case "todo":
                         task.setStatusTodo();
+                        System.out.println("Status da task '" + task.getDescription() + "' mudou para 'todo'.");
                         break;
                     
                     case "in-progress":
                         task.setStatusInProgress();
+                        System.out.println("Status da task '" + task.getDescription() + "' mudou para 'in-progress'.");
                         break;
 
                     case "done":
                         task.setStatusDone();
+                        System.out.println("Status da task '" + task.getDescription() + "' mudou para 'done'.");
                         break;
                 }
             }
