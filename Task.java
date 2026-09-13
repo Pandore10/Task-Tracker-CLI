@@ -38,7 +38,7 @@ public class Task {
         return this.description;
     }
 
-    public String status() {
+    public String getStatus() {
         return this.status;
     }
 
