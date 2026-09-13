@@ -21,7 +21,7 @@ public class TaskManager {
         }
     }
 
-    public void listarTasks() {
+    public void listTasks() {
         for (Task task : tasks) {
             System.out.println(task.toString());
         }
