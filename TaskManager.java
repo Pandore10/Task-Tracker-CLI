@@ -8,7 +8,7 @@ public class TaskManager {
         Task task = new Task(description);
         tasks.add(task);
 
-        System.out.println("Task '" + description + "' adicionada a lista de tasks.");
+        System.out.println("Task '" + description + "' (" + task.getId() + ") adicionada a lista de tasks.");
     }
 
     public void deleteTask(int id) {
