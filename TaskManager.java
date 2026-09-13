@@ -12,6 +12,12 @@ public class TaskManager {
     }
 
     public void deleteTask(int id) {
-
+        for(Task task : tasks) {
+            if (task.getId() == id) {
+                tasks.remove(task);
+                System.out.println("Removida task '" + task.getDescription() + "' da lista de tasks.");
+                break;
+            }
+        }
     }
 }
