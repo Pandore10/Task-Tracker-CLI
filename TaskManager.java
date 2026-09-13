@@ -26,4 +26,12 @@ public class TaskManager {
             System.out.println(task.toString());
         }
     }
+
+    public void listTasks(String status) {
+        System.out.println("Listando tasks com o status '" + status + "'.");
+
+        for (Task task : tasks) {
+            if (task.getStatus().equals(status)) System.out.println(task.toString());
+        }
+    }
 }
