@@ -37,7 +37,7 @@ public class TaskManager {
 
     public void editStatus(int id, String status) {
         for (Task task : tasks) {
-            if (task.getId == id) {
+            if (task.getId() == id) {
                 switch (status) {
                     case "todo":
                         task.setStatusTodo();
