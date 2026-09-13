@@ -34,4 +34,24 @@ public class TaskManager {
             if (task.getStatus().equals(status)) System.out.println(task.toString());
         }
     }
+
+    public void editStatus(int id, String status) {
+        for (Task task : tasks) {
+            if (task.getId == id) {
+                switch (status) {
+                    case "todo":
+                        task.setStatusTodo();
+                        break;
+                    
+                    case "in-progress":
+                        task.setStatusInProgress();
+                        break;
+
+                    case "done":
+                        task.setStatusDone();
+                        break;
+                }
+            }
+        }
+    }
 }
