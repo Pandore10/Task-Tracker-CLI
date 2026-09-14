@@ -29,4 +29,28 @@ public class RepositoryManager {
 
         return -1;
     }
+
+    public static int getLastId(String filename) {
+        File file = new File(filename);
+
+        if (!file.exists()) return -1;
+
+        try (Scanner scanner = new Scanner(file)) {
+            
+            while (scanner.hasNext()) {
+                if (scanner.next().contains("\"lastId\"")) {
+                    int lastId = Integer.parseInt(scanner.next().replace(",", ""));
+                    scanner.close();
+                    return lastId;
+                }
+            }
+
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            System.err.println("Erro ao tentar pegar lastId: " + e);
+        }
+
+        return -1;
+    }
 }
