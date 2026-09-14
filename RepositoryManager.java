@@ -1,7 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class RepositoryManager {
@@ -14,8 +12,7 @@ public class RepositoryManager {
 
         if (!file.exists()) return -1;
 
-        try {
-            Scanner scanner = new Scanner(file);
+        try (Scanner scanner = new Scanner(file)) {
 
             while (scanner.hasNext()) {
                 if (scanner.next().contains("\"numTasks\"")) {
@@ -23,9 +20,9 @@ public class RepositoryManager {
                     scanner.close();
                     return numTasks;
                 }
-
-                scanner.close();
             }  
+
+            scanner.close();
         } catch (FileNotFoundException e) {
             System.err.println("Erro ao procurar chave 'numTasks': " + e);
         }
