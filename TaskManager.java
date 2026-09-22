@@ -14,4 +14,16 @@ public class TaskManager {
             if (task.getId() == id) tasks.remove(task);
         }
     }
+
+    public void updateTask(int id, String description) {
+        for (Task task : tasks) {
+            if (task.getId() == id) task.setDescription(description);
+        }
+    }
+
+    public void updateTask(int id, Status status) {
+        for (Task task : tasks) {
+            if (task.getId() == id) task.setStatus(status);
+        }
+    }
 }
