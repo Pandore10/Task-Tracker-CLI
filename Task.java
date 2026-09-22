@@ -27,6 +27,10 @@ public class Task {
     }
 
     //getters
+    public int getId() {
+        return this.id;
+    }
+
     public String getDescription() {
         return this.description;
     }
