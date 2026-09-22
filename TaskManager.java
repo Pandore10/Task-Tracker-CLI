@@ -8,6 +8,10 @@ public class TaskManager {
         return tasks;
     }
 
+    public void setList(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public void createTask(String description) {
         Task task = new Task(description.replace(" ", "-"));
         tasks.add(task);
