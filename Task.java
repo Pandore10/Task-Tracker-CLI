@@ -21,6 +21,11 @@ public class Task {
         this.updatedAt = LocalDateTime.now();
     }
 
+    public String toString() {
+        return String.format("{\"id\":%d, \"description\":\"%s\", \"status\":\"%s\", \"updatedAt\":\"%s\", \"createdAt\":\"%s\"}",
+                                this.id, this.description, this.status, this.updatedAt, this.createdAt);
+    }
+
     //getters
     public String getDescription() {
         return this.description;
