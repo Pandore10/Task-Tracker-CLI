@@ -39,6 +39,10 @@ public class Task {
         return this.status;
     }
 
+    public LocalDateTime getUpdateTime() {
+        return this.updatedAt;
+    }
+
     //setters
     public void setDescription(String description) {
         this.description = description;
@@ -48,5 +52,10 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
         updateTask();
+    }
+
+    public void setDates(LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 }
