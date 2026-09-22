@@ -1,3 +1,4 @@
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,15 +37,21 @@ public class TaskManager {
     }
 
     public void listTasks() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY - HH:mm:ss");
+
         for (Task task : tasks) {
-            System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus());
+            System.out.printf("Task '%s' (ID %d)\nStatus: %s\nLast update: %s\n\n", 
+                                task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus(), task.getUpdateTime().format(formatter));
         }
     }
 
     public void listTasks(Status status) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY - HH:mm:ss");
+
         for (Task task : tasks) {
             if (task.getStatus().equals(status)) {
-                System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus());
+                System.out.printf("Task '%s' (ID %d)\nStatus: %s\nLast update: %s\n\n", 
+                                    task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus(), task.getUpdateTime().format(formatter));
             }
         }
     }
