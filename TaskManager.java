@@ -29,14 +29,14 @@ public class TaskManager {
 
     public void listTasks() {
         for (Task task : tasks) {
-            System.out.printf("Task '%s' (ID %d)\nStatus: %s", task.getDescription(), task.getId(), task.getStatus().getStatus());
+            System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription(), task.getId(), task.getStatus().getStatus());
         }
     }
 
     public void listTasks(Status status) {
         for (Task task : tasks) {
             if (task.getStatus().equals(status)) {
-                System.out.printf("Task '%s' (ID %d)\nStatus: %s", task.getDescription(), task.getId(), task.getStatus().getStatus());
+                System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription(), task.getId(), task.getStatus().getStatus());
             }
         }
     }
