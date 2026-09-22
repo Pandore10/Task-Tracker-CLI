@@ -4,7 +4,7 @@ import java.util.List;
 
 public class RepositoryManager {
 
-    public void writeJSON(List<Task> tasks, String filename) {
+    public static void writeJSON(List<Task> tasks, String filename) {
         
         String content = "";
 
