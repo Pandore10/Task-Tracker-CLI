@@ -4,6 +4,10 @@ import java.util.List;
 public class TaskManager {
     private List<Task> tasks = new ArrayList<>();
 
+    public List<Task> getList() {
+        return tasks;
+    }
+
     public void createTask(String description) {
         Task task = new Task(description);
         tasks.add(task);
