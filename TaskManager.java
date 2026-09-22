@@ -26,4 +26,18 @@ public class TaskManager {
             if (task.getId() == id) task.setStatus(status);
         }
     }
+
+    public void listTasks() {
+        for (Task task : tasks) {
+            System.out.printf("Task '%s' (ID %d)\nStatus: %s", task.getDescription(), task.getId(), task.getStatus());
+        }
+    }
+
+    public void listTasks(Status status) {
+        for (Task task : tasks) {
+            if (task.getStatus().equals(status)) {
+                System.out.printf("Task '%s' (ID %d)\nStatus: %s", task.getDescription(), task.getId(), task.getStatus());
+            }
+        }
+    }
 }
