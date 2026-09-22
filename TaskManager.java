@@ -9,7 +9,7 @@ public class TaskManager {
     }
 
     public void createTask(String description) {
-        Task task = new Task(description);
+        Task task = new Task(description.replace(" ", "-"));
         tasks.add(task);
     }
 
@@ -33,14 +33,14 @@ public class TaskManager {
 
     public void listTasks() {
         for (Task task : tasks) {
-            System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription(), task.getId(), task.getStatus().getStatus());
+            System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus());
         }
     }
 
     public void listTasks(Status status) {
         for (Task task : tasks) {
             if (task.getStatus().equals(status)) {
-                System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription(), task.getId(), task.getStatus().getStatus());
+                System.out.printf("Task '%s' (ID %d)\nStatus: %s\n", task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus());
             }
         }
     }
