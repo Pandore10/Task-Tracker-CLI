@@ -16,4 +16,28 @@ public class Task {
         this.updatedAt = LocalDateTime.now();
         this.createdAt = LocalDateTime.now();
     }
+
+    private void updateTask() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    //getters
+    public String getDescription() {
+        return this.description;
+    }
+
+    public Status getStatus() {
+        return this.status;
+    }
+
+    //setters
+    public void setDescription(String description) {
+        this.description = description;
+        updateTask();
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+        updateTask();
+    }
 }
