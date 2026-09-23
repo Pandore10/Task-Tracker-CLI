@@ -16,24 +16,32 @@ public class TaskManager {
     public void createTask(String description) {
         Task task = new Task(description.replace(" ", "-"));
         tasks.add(task);
+        
+        RepositoryManager.writeJSON(tasks);
     }
 
     public void deleteTask(int id) {
         for (Task task : tasks) {
             if (task.getId() == id) tasks.remove(task);
         }
+        
+        RepositoryManager.writeJSON(tasks);
     }
 
     public void updateTask(int id, String description) {
         for (Task task : tasks) {
             if (task.getId() == id) task.setDescription(description);
         }
+        
+        RepositoryManager.writeJSON(tasks);
     }
 
     public void updateTask(int id, Status status) {
         for (Task task : tasks) {
             if (task.getId() == id) task.setStatus(status);
         }
+
+        RepositoryManager.writeJSON(tasks);
     }
 
     public void listTasks() {
