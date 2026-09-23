@@ -1,9 +1,9 @@
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class TaskManager {
-    private List<Task> tasks = new ArrayList<>();
+    private List<Task> tasks = RepositoryManager.readJSON();
 
     public List<Task> getList() {
         return tasks;
@@ -28,18 +28,30 @@ public class TaskManager {
 
     public void updateTask(int id, String description) {
         for (Task task : tasks) {
-            if (task.getId() == id) task.setDescription(description);
+            if (task.getId() == id) {
+                task.setDescription(description);
+                reloadList();
+                return;
+            }
         }
         
-        reloadList();
+        throw new NoSuchElementException();
     }
 
     public void updateTask(int id, Status status) {
+        if (status == null) {
+            throw new IllegalArgumentException();
+        }
+        
         for (Task task : tasks) {
-            if (task.getId() == id) task.setStatus(status);
+            if (task.getId() == id) {
+                task.setStatus(status);
+                reloadList();
+                return;
+            }
         }
 
-        reloadList();
+        throw new NoSuchElementException();
     }
 
     public void listTasks() {
