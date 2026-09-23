@@ -39,9 +39,6 @@ public class TaskManager {
     }
 
     public void updateTask(int id, Status status) {
-        if (status == null) {
-            throw new IllegalArgumentException();
-        }
         
         for (Task task : tasks) {
             if (task.getId() == id) {
