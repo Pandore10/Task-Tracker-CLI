@@ -17,15 +17,13 @@ public class TaskManager {
         Task task = new Task(description.replace(" ", "-"));
         tasks.add(task);
         
-        RepositoryManager.writeJSON(tasks);
+        reloadList();
     }
 
     public void deleteTask(int id) {
-        for (Task task : tasks) {
-            if (task.getId() == id) tasks.remove(task);
-        }
+        tasks.removeIf(task -> task.getId() == id);
         
-        RepositoryManager.writeJSON(tasks);
+        reloadList();
     }
 
     public void updateTask(int id, String description) {
@@ -33,7 +31,7 @@ public class TaskManager {
             if (task.getId() == id) task.setDescription(description);
         }
         
-        RepositoryManager.writeJSON(tasks);
+        reloadList();
     }
 
     public void updateTask(int id, Status status) {
@@ -41,7 +39,7 @@ public class TaskManager {
             if (task.getId() == id) task.setStatus(status);
         }
 
-        RepositoryManager.writeJSON(tasks);
+        reloadList();
     }
 
     public void listTasks() {
@@ -62,5 +60,10 @@ public class TaskManager {
                                     task.getDescription().replace("-", " "), task.getId(), task.getStatus().getStatus(), task.getUpdateTime().format(formatter));
             }
         }
+    }
+
+    private void reloadList() {
+        RepositoryManager.writeJSON(tasks);
+        tasks = RepositoryManager.readJSON();
     }
 }
