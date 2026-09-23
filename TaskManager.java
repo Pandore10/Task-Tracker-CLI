@@ -29,7 +29,7 @@ public class TaskManager {
     public void updateTask(int id, String description) {
         for (Task task : tasks) {
             if (task.getId() == id) {
-                task.setDescription(description);
+                task.setDescription(description.replace(" ", "-"));
                 reloadList();
                 return;
             }
