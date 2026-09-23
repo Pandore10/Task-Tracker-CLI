@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class RepositoryManager {
 
-    public static void writeJSON(List<Task> tasks, String filename) {
+    private static void writeJSON(List<Task> tasks, String filename) {
         
         String content = "";
 
@@ -30,7 +30,7 @@ public class RepositoryManager {
         }
     }
 
-    public static List<Task> readJSON(String filename) {
+    private static List<Task> readJSON(String filename) {
 
         File file = new File(filename);
 
